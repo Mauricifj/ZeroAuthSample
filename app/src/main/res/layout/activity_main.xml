@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin_activity"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <ProgressBar
+            android:id="@+id/spinner"
+            style="@android:style/Widget.Material.ProgressBar.Large"
+            android:indeterminate="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
+            android:minWidth="40dp"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:id="@+id/spinner_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/spinner"
+            android:textStyle="bold"
+            android:text="@string/text_spinner" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/holder_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:hint="@string/hint_holder_name"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="22"
+            app:endIconMode="clear_text"
+            app:helperText="@string/helper_text_holder_name"
+            app:helperTextEnabled="true"
+            app:startIconContentDescription="@string/content_description_holder_name"
+            app:startIconDrawable="@drawable/ic_person_black_24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLength="22"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/card_number_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/holder_layout"
+            android:hint="@string/hint_card_number"
+            app:counterEnabled="true"
+            app:counterMaxLength="16"
+            app:errorEnabled="true"
+            app:endIconMode="password_toggle"
+            app:startIconContentDescription="@string/content_description_card_number"
+            app:startIconDrawable="@drawable/ic_credit_card_black_24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/card_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="16"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:id="@+id/card_expiration_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_number_layout"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/label_card_expiration_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_card_expiration_date" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/card_expiration_month_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_card_expiration_date"
+                android:layout_marginLeft="@dimen/margin_big"
+                android:hint="@string/hint_card_expiration_month"
+                app:counterMaxLength="2"
+                app:endIconMode="dropdown_menu"
+                app:startIconContentDescription="@string/content_description_card_expiration_month"
+                app:startIconDrawable="@drawable/ic_date_range_black_24dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/card_expiration_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/card_expiration_year_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_card_expiration_date"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/margin_big"
+                android:hint="@string/hint_card_expiration_year"
+                app:counterMaxLength="4"
+                app:endIconMode="dropdown_menu"
+                app:startIconContentDescription="@string/content_description_card_expiration_year"
+                app:startIconDrawable="@drawable/ic_date_range_black_24dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/card_expiration_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/card_security_code_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_expiration_layout"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:hint="@string/hint_card_security_code"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="3"
+            app:endIconMode="password_toggle"
+            app:helperText="@string/helper_text_card_security_code"
+            app:helperTextEnabled="true"
+            app:startIconContentDescription="@string/content_description_card_security_code"
+            app:startIconDrawable="@drawable/ic_lock_black_24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/card_security_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="3"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/card_brand_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_security_code_layout"
+            android:hint="@string/hint_card_brand"
+            app:errorEnabled="true"
+            app:startIconContentDescription="@string/content_description_card_brand"
+            app:startIconDrawable="@drawable/ic_credit_card_black_24dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/card_brand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/verify"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_verify_button" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <!-- Valid -->
+        <TextView
+            android:id="@+id/label_result_valid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big"
+            android:layout_marginStart="@dimen/margin_big"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_alignParentStart="true"
+            android:textStyle="bold"
+            android:text="@string/label_result_valid" />
+        <TextView
+            android:id="@+id/result_valid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big"
+            android:layout_toEndOf="@+id/label_result_valid"/>
+
+        <!-- Return Code -->
+        <TextView
+            android:id="@+id/label_result_return_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_result_valid"
+            android:layout_marginStart="@dimen/margin_big"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_alignParentStart="true"
+            android:textStyle="bold"
+            android:text="@string/label_result_return_code" />
+        <TextView
+            android:id="@+id/result_return_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_result_valid"
+            android:layout_toEndOf="@+id/label_result_return_code"/>
+
+        <!-- Return Message -->
+        <TextView
+            android:id="@+id/label_result_return_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/result_return_code"
+            android:layout_marginStart="@dimen/margin_big"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_alignParentStart="true"
+            android:textStyle="bold"
+            android:text="@string/label_result_return_message" />
+        <TextView
+            android:id="@+id/result_return_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/result_return_code"
+            android:layout_toEndOf="@+id/label_result_return_message"/>
+
+        <!-- Issuer Transaction Id -->
+        <TextView
+            android:id="@+id/label_result_issuer_transaction_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_result_return_message"
+            android:layout_marginStart="@dimen/margin_big"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_alignParentStart="true"
+            android:textStyle="bold"
+            android:text="@string/label_result_issuer_transaction_id" />
+        <TextView
+            android:id="@+id/result_issuer_transaction_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_result_return_message"
+            android:layout_toEndOf="@+id/label_result_issuer_transaction_id"/>
+
+        <ListView
+            android:id="@+id/errors_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:layout_below="@+id/label_result_issuer_transaction_id"/>
+
+        <Button
+            android:id="@+id/backToForm"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_back_button" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

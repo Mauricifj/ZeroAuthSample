@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">ZeroAuthSample</string>
+
+    <!--HINT-->
+    <string name="hint_holder_name">Holder Name</string>
+    <string name="hint_card_number">Card Number</string>
+    <string name="hint_card_expiration_month">Month</string>
+    <string name="hint_card_expiration_year">Year</string>
+    <string name="hint_card_security_code">Security Code</string>
+    <string name="hint_card_brand">Brand</string>
+
+    <!--HELPER TEXT-->
+    <string name="helper_text_holder_name">Full name as displayed on card</string>
+    <string name="helper_text_card_security_code">Typically three digits to the right of the signature strip</string>
+
+    <!--LABEL-->
+    <string name="label_card_expiration_date">Expiration date</string>
+    <string name="label_result_valid">VALID:</string>
+    <string name="label_result_return_code">RETURN CODE:</string>
+    <string name="label_result_return_message">RETURN MESSAGE:</string>
+    <string name="label_result_issuer_transaction_id">ISSUER TRANSACTION ID:</string>
+
+    <!--CONTENT DESCRIPTION-->
+    <string name="content_description_holder_name">Holder Name</string>
+    <string name="content_description_card_number">Card Number</string>
+    <string name="content_description_card_expiration_month">Expiration Month</string>
+    <string name="content_description_card_expiration_year">Expiration Year</string>
+    <string name="content_description_card_security_code">Security Code</string>
+    <string name="content_description_card_brand">Card Brand</string>
+
+    <!--TEXT-->
+    <string name="text_verify_button">VERIFY</string>
+    <string name="text_back_button">BACK TO FORM</string>
+    <string name="text_spinner">LOADING…</string>
+
+</resources>
